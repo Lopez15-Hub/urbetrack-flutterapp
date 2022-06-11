@@ -1,2 +1,5 @@
-export 'star_wars_api_response.dart';
-export 'star_wars_character.dart';
+export 'character_response.dart';
+export 'character.dart';
+export 'planet.dart';
+export 'vehicles_response.dart';
+export 'vehicle.dart';

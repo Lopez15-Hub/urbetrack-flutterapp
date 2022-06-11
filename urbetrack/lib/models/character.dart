@@ -1,5 +1,5 @@
-class StarWarsCharacter {
-  StarWarsCharacter({
+class Character {
+  Character({
     required this.name,
     required this.height,
     required this.mass,
@@ -35,7 +35,7 @@ class StarWarsCharacter {
     List<String>? vehicles,
     List<String>? starships,
   ) =>
-      StarWarsCharacter(
+      Character(
           name: name ?? this.name,
           height: height ?? this.height,
           mass: mass ?? this.mass,
@@ -47,8 +47,7 @@ class StarWarsCharacter {
           vehicles: vehicles ?? this.vehicles,
           starships: starships ?? this.starships);
 
-  factory StarWarsCharacter.fromJson(Map<String, dynamic> json) =>
-      StarWarsCharacter(
+  factory Character.fromJson(Map<String, dynamic> json) => Character(
         name: json["name"],
         height: json["height"],
         mass: json["mass"],

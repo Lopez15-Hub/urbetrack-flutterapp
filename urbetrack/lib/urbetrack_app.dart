@@ -18,12 +18,11 @@ class UrbetrackApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<BottomBarNavigationBloc>(
-            create: (context) => BottomBarNavigationBloc(),
-          ),
+          BlocProvider<BottomBarNavigationBloc>(create: (context) => BottomBarNavigationBloc(),),
+          BlocProvider<ConnectionBloc>(create: (context) => ConnectionBloc(),),
         ],
         child: const MaterialApp(
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: true,
           home: Home(),
         ),
       ),

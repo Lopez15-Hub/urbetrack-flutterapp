@@ -10,17 +10,17 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navigationBloc = context.read<BottomBarNavigationBloc>();
-    return BlocBuilder<BottomBarNavigationBloc,int>(
+    return BlocBuilder<BottomBarNavigationBloc, int>(
       builder: (context, currentIndex) {
         return BottomNavigationBar(
             onTap: (value) => navigationBloc.add(ChangePageView(value)),
-            currentIndex:currentIndex,
+            currentIndex: currentIndex,
             selectedIconTheme:
-                const IconThemeData(color: Color.fromARGB(255, 255, 208, 0)),
+                const IconThemeData(color: Color.fromRGBO(255, 208, 0, 1)),
             selectedItemColor: Colors.black,
             items: const [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.people), label: "Personajes"),
+                  icon: Icon(Icons.people), label: "Inicio"),
               BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Menu")
             ]);
       },

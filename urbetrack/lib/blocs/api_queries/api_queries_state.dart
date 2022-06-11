@@ -11,12 +11,31 @@ class ApiQueriesInitial extends ApiQueriesState {
 }
 
 class SetResponseData extends ApiQueriesState {
-    final int count;
-    final String next;
-    final String previous;
-    final List<StarWarsCharacter> results;
+  final int count;
+  final String next;
+  final String previous;
+  final List<Character> results;
 
   SetResponseData(this.count, this.next, this.previous, this.results);
+
+  @override
+  List<Object> get props => [count, next, previous, results];
+}
+
+class SetPlanetName extends ApiQueriesState {
+  final String planetName;
+  SetPlanetName(this.planetName);
+  @override
+  List<Object> get props => [planetName];
+}
+
+class SetVehicles extends ApiQueriesState {
+  final int count;
+  final String next;
+  final String previous;
+  final List<Vehicle> results;
+
+  SetVehicles(this.count, this.next, this.previous, this.results);
 
   @override
   List<Object> get props => [count, next, previous, results];
