@@ -63,12 +63,13 @@ class CharacterMetadataWidget extends StatelessWidget {
           ),
           BlocBuilder<ApiQueriesBloc, ApiQueriesState>(
             builder: (context, state) {
-              if (state is SetPlanetName)
+              if (state is SetPlanetName) {
                 return CustomText(
                   text: 'Mundo natal: ${state.planetName}',
                   fontSize: 16,
                   weight: FontWeight.bold,
                 );
+              }
               return const Text("Mundo natal no definido");
             },
           ),

@@ -4,6 +4,8 @@ import 'package:urbetrack/blocs/bottom_bar_navigation_bloc/bottom_bar_navigation
 import 'package:urbetrack/views/menu.dart';
 import 'package:urbetrack/views/network_status_page.dart';
 
+import '../widgets/widgets.dart';
+
 
 
 class Pages extends StatelessWidget {
@@ -21,7 +23,7 @@ class Pages extends StatelessWidget {
           default:
             Container();
         }
-        return const Center(child: CircularProgressIndicator());
+        return const LoadingIndicator();
       },
     );
   }
