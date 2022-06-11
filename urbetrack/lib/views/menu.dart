@@ -6,14 +6,15 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
          const Text("Desconectarse"),
           Switch(
-         onChanged: (e)=>print(e),   
+         onChanged: (e)=> print(e),   
             value: false,
           ),
         ],
-      )
+      ),
     );
   }
 }
