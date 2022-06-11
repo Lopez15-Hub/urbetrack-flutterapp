@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:urbetrack/global/enviroments.dart';
+import 'package:urbetrack/global/endpoints.dart';
 import 'package:urbetrack/models/models.dart';
 import 'package:http/http.dart' as http;
 

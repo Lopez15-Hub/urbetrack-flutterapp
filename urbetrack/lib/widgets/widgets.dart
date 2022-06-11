@@ -6,3 +6,4 @@ export 'general/custom_text.dart';
 export 'home/network_switch.dart';
 export 'character/character_metadata_widget.dart';
 export 'general/loading_indicator.dart';
+export 'home/my_fab.dart';

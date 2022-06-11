@@ -22,7 +22,7 @@ class UrbetrackApp extends StatelessWidget {
           BlocProvider<ConnectionBloc>(create: (context) => ConnectionBloc(),),
         ],
         child: const MaterialApp(
-          debugShowCheckedModeBanner: true,
+          debugShowCheckedModeBanner: false,
           home: Home(),
         ),
       ),

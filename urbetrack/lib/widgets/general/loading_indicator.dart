@@ -9,6 +9,7 @@ class LoadingIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const CircularProgressIndicator(
             color: Color.fromRGBO(251, 192, 45, 1),

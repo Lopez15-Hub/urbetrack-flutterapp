@@ -19,22 +19,7 @@ class Home extends StatelessWidget {
   }
 }
 
-class MyFab extends StatelessWidget {
-  const MyFab({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      
-      onPressed: () {},
-      tooltip: 'Reportar avistamiento',
-      backgroundColor: Colors.yellow[700],
-      child: const Icon(Icons.report),
-    );
-  }
-}
 
 
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:urbetrack/blocs/api_queries/api_queries_bloc.dart';
-
 import '../widgets.dart';
-import 'character_list_item.dart';
 class CharactersListData extends StatelessWidget {
   const CharactersListData({
     Key? key,

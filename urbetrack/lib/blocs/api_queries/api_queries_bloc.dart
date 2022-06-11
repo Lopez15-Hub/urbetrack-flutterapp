@@ -10,6 +10,7 @@ part 'api_queries_event.dart';
 part 'api_queries_state.dart';
 
 class ApiQueriesBloc extends Bloc<ApiQueriesEvent, ApiQueriesState> {
+
   final SwapiService _swapiService;
   ApiQueriesBloc(this._swapiService) : super(ApiQueriesInitial()) {
     on<FetchStarWarsDataEvent>((event, emit) async {
@@ -26,5 +27,6 @@ class ApiQueriesBloc extends Bloc<ApiQueriesEvent, ApiQueriesState> {
       emit(SetVehicles(vehiclesData.count, vehiclesData.next,
           vehiclesData.previous, vehiclesData.results));
     });
+    
   }
 }
