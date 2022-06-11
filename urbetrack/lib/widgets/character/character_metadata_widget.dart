@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:urbetrack/blocs/api_queries/api_queries_bloc.dart';
 import 'package:urbetrack/models/character.dart';
-import '../blocs/blocs.dart';
-import '../services/swapi_service.dart';
-import '../widgets/custom_text.dart';
+import '../../blocs/blocs.dart';
+import '../../services/swapi_service.dart';
+import '../widgets.dart';
+
 class CharacterMetadataWidget extends StatelessWidget {
   const CharacterMetadataWidget({
     Key? key,
@@ -62,21 +63,26 @@ class CharacterMetadataWidget extends StatelessWidget {
           ),
           BlocBuilder<ApiQueriesBloc, ApiQueriesState>(
             builder: (context, state) {
-              if (state is SetPlanetName)return CustomText( text: 'Mundo natal: ${state.planetName}',fontSize: 16,weight: FontWeight.bold,);
+              if (state is SetPlanetName)
+                return CustomText(
+                  text: 'Mundo natal: ${state.planetName}',
+                  fontSize: 16,
+                  weight: FontWeight.bold,
+                );
               return const Text("Mundo natal no definido");
             },
-          ),    
+          ),
           BlocProvider(
             create: (context) =>
                 ApiQueriesBloc(swapiService)..add(FetchVehiclesEvent()),
             child: BlocBuilder<ApiQueriesBloc, ApiQueriesState>(
               builder: (context, state) {
                 if (state is SetVehicles) {
-                    return CustomText(
-                              text: 'Vehiculo: ${state.results[0].name }',
-                              fontSize: 16,
-                              weight: FontWeight.bold,
-                            );
+                  return CustomText(
+                    text: 'Vehiculo: ${state.results[0].name}',
+                    fontSize: 16,
+                    weight: FontWeight.bold,
+                  );
                 }
                 return const Text("Vehiculo no definido");
               },

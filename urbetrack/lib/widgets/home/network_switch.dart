@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/connection/connection_bloc.dart';
+import '../../blocs/connection/connection_bloc.dart';
 class NetworkSwitch extends StatelessWidget {
   const NetworkSwitch({
     Key? key,

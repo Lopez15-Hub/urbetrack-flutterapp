@@ -1,7 +1,7 @@
-export 'bottom_bar.dart';
-export 'appbar.dart';
-export 'character_list_item.dart';
-export 'characters_list_data.dart';
-export 'custom_text.dart';
-export 'network_switch.dart';
-export 'character_metadata_widget.dart';
+export 'home/bottom_bar.dart';
+export 'home/appbar.dart';
+export 'character/character_list_item.dart';
+export 'character/characters_list_data.dart';
+export 'general/custom_text.dart';
+export 'home/network_switch.dart';
+export 'character/character_metadata_widget.dart';

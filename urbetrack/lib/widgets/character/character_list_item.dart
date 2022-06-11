@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../blocs/api_queries/api_queries_bloc.dart';
-import '../views/character_single_view.dart';
+import '../../blocs/api_queries/api_queries_bloc.dart';
+import '../../views/character_single_view.dart';
+
 class CharacterListItem extends StatelessWidget {
   final SetResponseData responseDataState;
   final int characterIndex;
@@ -10,19 +11,18 @@ class CharacterListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final characterGender = responseDataState.results[characterIndex].gender;
+
     return ListTile(
+      
       title: Text(responseDataState.results[characterIndex].name),
-      subtitle: Text(responseDataState.results[characterIndex].gender == 'male'
-          ? 'Masculino'
-          : responseDataState.results[characterIndex].gender == 'female'
-              ? 'Femenino'
-              : 'Sin especificar'),
+      
+      subtitle: Text(characterGender == 'male'? 'Masculino': characterGender == 'female'? 'Femenino': 'Sin especificar'),
+     
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => CharacterSingleView(
-                    characterData: responseDataState.results[characterIndex],
-                  ))),
+              builder: (context) => CharacterSingleView(characterData: responseDataState.results[characterIndex],))),
     );
   }
 }
