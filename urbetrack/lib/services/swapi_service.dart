@@ -6,9 +6,14 @@ import 'package:http/http.dart' as http;
 
 class SwapiService {
   Future<CharacterResponse> getStarWarsCharactersData() async {
+
     try {
-      final response = await http.get(Enviroments.peopleUri);
-      if (response.statusCode != 200)throw Exception('Failed to get characters: Error code: ${response.statusCode}');
+      final response = await http
+          .get(Uri.parse("https://swapi.dev/api/people/"));
+      if (response.statusCode != 200) {
+        throw Exception(
+            'Failed to get characters: Error code: ${response.statusCode}');
+      }
 
       return CharacterResponse.fromJson(json.decode(response.body));
     } catch (error) {
@@ -20,30 +25,24 @@ class SwapiService {
     try {
       final response = await http.get(Uri.parse(planetUrl));
 
-      if (response.statusCode != 200) throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
+      if (response.statusCode != 200) {
+        throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
+      }
 
       return Planet.fromJson(json.decode(response.body)).name;
     } catch (error) {
       throw Exception('Oh no! We have a problem. Check it! : $error');
     }
-  }
 
-  Future<String> getStarships(planetUrl) async {
-    try {
-      final response = await http.get(Uri.parse(planetUrl));
-
-      if (response.statusCode != 200)throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
-
-      return Planet.fromJson(json.decode(response.body)).name;
-    } catch (error) {
-      throw Exception('Oh no! We have a problem. Check it! : $error');
-    }
   }
 
   Future<VehiclesResponse> getVehicles() async {
     try {
       final response = await http.get(Enviroments.vehiclesUri);
-      if (response.statusCode != 200)throw Exception( 'Failed to get vehicles: Error code: ${response.statusCode}');
+      if (response.statusCode != 200) {
+        throw Exception(
+            'Failed to get vehicles: Error code: ${response.statusCode}');
+      }
       return VehiclesResponse.fromJson(json.decode(response.body));
     } catch (error) {
       throw Exception('Oh no! We have a problem. Check it! : $error');

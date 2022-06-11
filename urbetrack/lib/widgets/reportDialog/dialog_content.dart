@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../widgets.dart';
+import 'form_dialog.dart';
 
 class DialogContent extends StatelessWidget {
     const DialogContent({

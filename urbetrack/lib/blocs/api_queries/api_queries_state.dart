@@ -40,3 +40,5 @@ class SetVehicles extends ApiQueriesState {
   @override
   List<Object> get props => [count, next, previous, results];
 }
+
+

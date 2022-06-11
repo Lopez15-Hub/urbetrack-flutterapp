@@ -70,7 +70,7 @@ class CharacterMetadataWidget extends StatelessWidget {
                   weight: FontWeight.bold,
                 );
               }
-              return const Text("Mundo natal no definido");
+              return const LoadingIndicator(loadingText:"Cargando...");
             },
           ),
           BlocProvider(
@@ -85,11 +85,15 @@ class CharacterMetadataWidget extends StatelessWidget {
                     weight: FontWeight.bold,
                   );
                 }
-                return const Text("Vehiculo no definido");
+                   return const LoadingIndicator(loadingText:"Cargando...");
               },
             ),
           ),
-          Text("Naves espaciales: ${characterData.starships}"),
+              CustomText(
+            text: "Naves Espaciales: ${characterData.starships.isEmpty? 'No posee naves.' : characterData.starships.join(', ')}",
+            fontSize: 16,
+            weight: FontWeight.bold,
+          ),
         ],
       ),
     );

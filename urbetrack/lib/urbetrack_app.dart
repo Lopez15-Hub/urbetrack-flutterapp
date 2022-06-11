@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:urbetrack/services/swapi_service.dart';
-import 'package:urbetrack/views/home.dart';
+import 'package:urbetrack/views/home_view.dart';
 
 import 'blocs/blocs.dart';
 

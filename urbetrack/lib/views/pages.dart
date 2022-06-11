@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:urbetrack/blocs/bottom_bar_navigation/bottom_bar_navigation_bloc.dart';
-import 'package:urbetrack/views/menu.dart';
-import 'package:urbetrack/views/network_status_page.dart';
+import 'package:urbetrack/views/menu_view.dart';
+import 'package:urbetrack/views/network_status_view.dart';
 
 import '../widgets/widgets.dart';
 
