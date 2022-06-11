@@ -12,7 +12,7 @@ Future<bool> reportToJsonPlaceholder(Report report) async {
       'dateTime': report.dateTime.toString(),
       'characterName': report.characterName,
     });
-    if (response.statusCode == 200 || response.statusCode == 201 )print("Successfully reported to JsonPlaceholder");
+    if (response.statusCode == 200 || response.statusCode == 201 ) print("Successfully reported to JsonPlaceholder");
     return true;
 
   } catch (error) {
