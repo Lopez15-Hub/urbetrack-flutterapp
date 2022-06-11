@@ -20,7 +20,7 @@ class SwapiService {
     try {
       final response = await http.get(Uri.parse(planetUrl));
 
-      if (response.statusCode != 200)throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
+      if (response.statusCode != 200) throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
 
       return Planet.fromJson(json.decode(response.body)).name;
     } catch (error) {
@@ -42,9 +42,8 @@ class SwapiService {
 
   Future<VehiclesResponse> getVehicles() async {
     try {
-      final response = await http.get(Enviroments.vehiclesUrl);
-      if (response.statusCode != 200)throw Exception('Failed to get vehicles: Error code: ${response.statusCode}');
-
+      final response = await http.get(Enviroments.vehiclesUri);
+      if (response.statusCode != 200)throw Exception( 'Failed to get vehicles: Error code: ${response.statusCode}');
       return VehiclesResponse.fromJson(json.decode(response.body));
     } catch (error) {
       throw Exception('Oh no! We have a problem. Check it! : $error');

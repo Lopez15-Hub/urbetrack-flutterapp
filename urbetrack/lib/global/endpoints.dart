@@ -1,12 +1,9 @@
-class Enviroments{
+class Enviroments {
+  static String planetsUri = 'https://swapi.dev/api/planets/';
   static Uri peopleUri = Uri.parse('https://swapi.dev/api/people/');
+  static Uri vehiclesUri = Uri.parse('https://swapi.dev/api/vehicles/');
+  static Uri starshipsUri = Uri.parse('https://swapi.dev/api/starships/');
 
-  static String planetsUri ='https://swapi.dev/api/planets/';
 
-  static Uri vehiclesUrl =Uri.parse('https://swapi.dev/api/vehicles/');
-
-  static Uri starshipsUrl =Uri.parse('https://swapi.dev/api/starships/');
-
-  
-  static Uri jsonPlaceHolderURL =Uri.parse('https://jsonplaceholder.typicode.com/posts');
+  static Uri jsonPlaceHolderUri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
 }
