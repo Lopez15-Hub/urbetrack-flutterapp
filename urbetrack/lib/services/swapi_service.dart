@@ -1,14 +1,12 @@
 import 'dart:convert';
-
-import 'package:urbetrack/global/endpoints.dart';
 import 'package:urbetrack/models/models.dart';
 import 'package:http/http.dart' as http;
 import 'package:urbetrack/models/starship.dart';
 
 class SwapiService {
-  Future<CharacterResponse> getStarWarsCharactersData() async {
+  Future<CharacterResponse> getStarWarsCharactersData(nextPage) async {
     try {
-      final response = await http.get(Enviroments.peopleUri);
+      final response = await http.get(Uri.parse(nextPage));
 
       return CharacterResponse.fromJson(json.decode(response.body));
     } catch (error) {

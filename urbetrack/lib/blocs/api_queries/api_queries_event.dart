@@ -31,3 +31,11 @@ class FetchStarshipsEvent extends ApiQueriesEvent {
   @override
   List<Object> get props => [starships];
 }
+class FetchMorePeopleEvent extends ApiQueriesEvent {
+  final String pageEndpoint;
+
+  const FetchMorePeopleEvent(this.pageEndpoint);
+
+  @override
+  List<Object> get props => [pageEndpoint];
+}

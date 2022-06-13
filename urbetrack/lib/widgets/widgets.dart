@@ -13,3 +13,5 @@ export './character_metadata_widget/character_general_data.dart';
 export './character_metadata_widget/character_homeworld_data.dart';
 export './character_metadata_widget/character_vehicles_data.dart';
 export './character_metadata_widget/character_starships_data.dart';
+export 'character_list/character_list.dart';
+export 'character_list/pagination_buttons.dart';

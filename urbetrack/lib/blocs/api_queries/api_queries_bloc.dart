@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:urbetrack/global/endpoints.dart';
 
 import 'package:urbetrack/models/character.dart';
 import 'package:urbetrack/models/starship.dart';
@@ -11,9 +12,11 @@ part 'api_queries_state.dart';
 
 class ApiQueriesBloc extends Bloc<ApiQueriesEvent, ApiQueriesState> {
   final SwapiService _swapiService;
-  ApiQueriesBloc(this._swapiService) : super(ApiQueriesInitial()) {
+  static final _url = Enviroments.peopleUriSring;
+  ApiQueriesBloc(this._swapiService) : super(ApiQueriesInitial(_url)) {
     on<FetchStarWarsDataEvent>((event, emit) async {
-      final charactersData = await _swapiService.getStarWarsCharactersData();
+      final charactersData =
+          await _swapiService.getStarWarsCharactersData(state.pageEndpoint);
 
       if (charactersData.results.isNotEmpty) {
         emit(SetResponseData(charactersData.count, charactersData.next,
@@ -32,8 +35,13 @@ class ApiQueriesBloc extends Bloc<ApiQueriesEvent, ApiQueriesState> {
     });
     on<FetchStarshipsEvent>((event, emit) async {
       final starshipsData = await _swapiService.getStarships(event.starships);
-      print(starshipsData.isEmpty);
       emit(SetStarships(starshipsData));
+    });
+
+    on<FetchMorePeopleEvent>((event, emit) async {
+      final String next = event.pageEndpoint;
+      emit(ApiQueriesInitial(next));
+      add(FetchStarWarsDataEvent());
     });
   }
 }

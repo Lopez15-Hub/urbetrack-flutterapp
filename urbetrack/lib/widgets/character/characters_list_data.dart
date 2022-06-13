@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:urbetrack/blocs/api_queries/api_queries_bloc.dart';
 import '../widgets.dart';
 
 class CharactersListData extends StatefulWidget {
@@ -14,17 +12,8 @@ class CharactersListData extends StatefulWidget {
 
 class _CharactersListDataState extends State<CharactersListData> {
   final ScrollController scrollController = ScrollController();
+  int index = 1;
   @override
-  void initState() {
-    scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        BlocProvider.of<ApiQueriesBloc>(context).add(FetchStarWarsDataEvent());
-      }
-    });
-    super.initState();
-  }
-
   @override
   void dispose() {
     super.dispose();
@@ -32,28 +21,12 @@ class _CharactersListDataState extends State<CharactersListData> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ApiQueriesBloc, ApiQueriesState>(
-      builder: (context, state) {
-        if (state is SetResponseData) {
-          return ListView.separated(
-              controller: scrollController,
-              separatorBuilder: (context, index) => const Divider(),
-              physics: const BouncingScrollPhysics(),
-              itemCount: state.results.length,
-              itemBuilder: (context, characterIndex) {
-                return CharacterListItem(
-                  responseDataState: state,
-                  characterIndex: characterIndex,
-                );
-              });
-        }
-
-          return const LoadingIndicator(
-            loadingText: 'Obteniendo personajes...',
-          );
-        
-     
-      },
+    return Column(
+      children: [
+        CharactersList(scrollController: scrollController),
+        const PaginationButtons(),
+      ],
     );
   }
 }
+
