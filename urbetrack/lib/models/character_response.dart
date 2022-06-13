@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final starWarsApiResponse = starWarsApiResponseFromJson(jsonString);
 
 import 'dart:convert';
 

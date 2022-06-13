@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:urbetrack/global/endpoints.dart';
 import 'package:urbetrack/models/models.dart';
 import 'package:http/http.dart' as http;
 import 'package:urbetrack/models/starship.dart';
@@ -7,31 +8,20 @@ import 'package:urbetrack/models/starship.dart';
 class SwapiService {
   Future<CharacterResponse> getStarWarsCharactersData() async {
     try {
-      final response =
-          await http.get(Uri.parse("https://swapi.dev/api/people/"));
-      if (response.statusCode != 200) {
-        throw Exception(
-            'Failed to get characters: Error code: ${response.statusCode}');
-      }
+      final response = await http.get(Enviroments.peopleUri);
 
       return CharacterResponse.fromJson(json.decode(response.body));
     } catch (error) {
-      throw Exception('Oh no! We have a problem. Check it! : $error');
+      throw Exception('Oh no! We have a problem. Check it out! : $error');
     }
   }
 
   Future<String> getPlanetName(planetUrl) async {
     try {
       final response = await http.get(Uri.parse(planetUrl));
-
-      if (response.statusCode != 200) {
-        throw Exception(
-            'Failed to get planet name: Error code: ${response.statusCode}');
-      }
-
       return Planet.fromJson(json.decode(response.body)).name;
     } catch (error) {
-      throw Exception('Oh no! We have a problem. Check it! : $error');
+      throw Exception('Oh no! We have a problem. Check it out! : $error');
     }
   }
 
@@ -46,7 +36,7 @@ class SwapiService {
 
       return characterVehicles;
     } catch (error) {
-      throw Exception('Oh no! We have a problem. Check it! : $error');
+      throw Exception('Oh no! We have a problem. Check it out! : $error');
     }
   }
 
@@ -62,7 +52,7 @@ class SwapiService {
 
       return characterStarships;
     } catch (error) {
-      throw Exception('Oh no! We have a problem. Check it! : $error');
+      throw Exception('Oh no! We have a problem. Check it out! : $error');
     }
   }
 }

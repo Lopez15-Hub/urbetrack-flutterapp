@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final planet = planetFromJson(jsonString);
 
 import 'dart:convert';
 

@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final vehiclesResponse = vehiclesResponseFromJson(jsonString);
 
 import 'dart:convert';
 

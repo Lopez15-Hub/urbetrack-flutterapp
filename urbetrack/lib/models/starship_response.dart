@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final starshipResponse = starshipResponseFromJson(jsonString);
 
 import 'dart:convert';
 
