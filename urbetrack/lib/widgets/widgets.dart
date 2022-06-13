@@ -8,3 +8,8 @@ export 'character/character_metadata_widget.dart';
 export 'general/loading_indicator.dart';
 export 'home/my_fab.dart';
 export './reportDialog/report_alert_dialog.dart';
+export './character_metadata_widget/character_body_data.dart';
+export './character_metadata_widget/character_general_data.dart';
+export './character_metadata_widget/character_homeworld_data.dart';
+export './character_metadata_widget/character_vehicles_data.dart';
+export './character_metadata_widget/character_starships_data.dart';
