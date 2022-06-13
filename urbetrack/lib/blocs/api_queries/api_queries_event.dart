@@ -20,8 +20,14 @@ class FetchPlanetNameEvent extends ApiQueriesEvent {
 }
 
 class FetchVehiclesEvent extends ApiQueriesEvent {
+  final List<String> vehicles;
+  const FetchVehiclesEvent(this.vehicles);
   @override
-  List<Object> get props => [];
+  List<Object> get props => [vehicles];
 }
-
-
+class FetchStarshipsEvent extends ApiQueriesEvent {
+  final List<String> starships;
+  const FetchStarshipsEvent(this.starships);
+  @override
+  List<Object> get props => [starships];
+}

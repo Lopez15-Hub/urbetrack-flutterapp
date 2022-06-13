@@ -16,15 +16,11 @@ class CustomText extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: weight,
     );
-    return Column(
-      children: [
-        Text(
-          text,
-          style: textStyle,
-          textAlign: TextAlign.start,
-        ),
-        const Divider()
-      ],
+    return Text(
+      text,
+      style: textStyle,
+      textAlign: TextAlign.start,
+      
     );
   }
 }

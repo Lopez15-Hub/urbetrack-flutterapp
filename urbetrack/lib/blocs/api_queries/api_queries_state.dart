@@ -30,15 +30,20 @@ class SetPlanetName extends ApiQueriesState {
 }
 
 class SetVehicles extends ApiQueriesState {
-  final int count;
-  final String next;
-  final String previous;
-  final List<Vehicle> results;
+  final List<Vehicle> vehicles;
 
-  SetVehicles(this.count, this.next, this.previous, this.results);
+  SetVehicles(this.vehicles);
 
   @override
-  List<Object> get props => [count, next, previous, results];
+  List<Object> get props => [vehicles];
+}
+class SetStarships extends ApiQueriesState {
+  final List<Starship> starships;
+
+  SetStarships(this.starships);
+
+  @override
+  List<Object> get props => [starships];
 }
 
 

@@ -1,15 +1,14 @@
 import 'dart:convert';
 
-import 'package:urbetrack/global/endpoints.dart';
 import 'package:urbetrack/models/models.dart';
 import 'package:http/http.dart' as http;
+import 'package:urbetrack/models/starship.dart';
 
 class SwapiService {
   Future<CharacterResponse> getStarWarsCharactersData() async {
-
     try {
-      final response = await http
-          .get(Uri.parse("https://swapi.dev/api/people/"));
+      final response =
+          await http.get(Uri.parse("https://swapi.dev/api/people/"));
       if (response.statusCode != 200) {
         throw Exception(
             'Failed to get characters: Error code: ${response.statusCode}');
@@ -26,24 +25,42 @@ class SwapiService {
       final response = await http.get(Uri.parse(planetUrl));
 
       if (response.statusCode != 200) {
-        throw Exception('Failed to get planet name: Error code: ${response.statusCode}');
+        throw Exception(
+            'Failed to get planet name: Error code: ${response.statusCode}');
       }
 
       return Planet.fromJson(json.decode(response.body)).name;
     } catch (error) {
       throw Exception('Oh no! We have a problem. Check it! : $error');
     }
-
   }
 
-  Future<VehiclesResponse> getVehicles() async {
+  Future getVehicles(List<String> vehicles) async {
     try {
-      final response = await http.get(Enviroments.vehiclesUri);
-      if (response.statusCode != 200) {
-        throw Exception(
-            'Failed to get vehicles: Error code: ${response.statusCode}');
-      }
-      return VehiclesResponse.fromJson(json.decode(response.body));
+      final vehiclesData = vehicles.map((vehicleUrl) async {
+        final response = await http.get(Uri.parse(vehicleUrl));
+        return Vehicle.fromJson(jsonDecode(response.body));
+      });
+
+      final List<Vehicle> characterVehicles = await Future.wait(vehiclesData);
+
+      return characterVehicles;
+    } catch (error) {
+      throw Exception('Oh no! We have a problem. Check it! : $error');
+    }
+  }
+
+  Future getStarships(List<String> starships) async {
+    try {
+      final starshipsData = starships.map((starshipUrl) async {
+        final response = await http.get(Uri.parse(starshipUrl));
+        return Starship.fromJson(jsonDecode(response.body));
+      });
+
+      final List<Starship> characterStarships =
+          await Future.wait(starshipsData);
+
+      return characterStarships;
     } catch (error) {
       throw Exception('Oh no! We have a problem. Check it! : $error');
     }
